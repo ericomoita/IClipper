@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.iclipper.MainActivity">
+
+    <ListView
+        android:id="@+id/listaPalavras"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center" />
+
+    <Switch
+        android:id="@+id/switchExibirAlerta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/listaPalavras"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="22dp"
+        android:text="Exibir Alerta " />
+
+    <SeekBar
+        android:id="@+id/skIntervalo"
+        android:layout_width="150dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="37dp"
+        android:max="3600000"
+        android:layout_below="@+id/switchExibirAlerta"
+        android:layout_toRightOf="@+id/txtOrigem"
+        android:layout_toEndOf="@+id/txtOrigem" />
+
+    <TextView
+        android:id="@+id/txtOrigem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/switchExibirAlerta"
+        android:layout_alignStart="@+id/switchExibirAlerta"
+        android:layout_alignTop="@+id/skIntervalo"
+        android:text="Lembrete a cada:" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtOrigem"
+        android:layout_alignStart="@+id/txtOrigem"
+        android:layout_below="@+id/skIntervalo"
+        android:layout_marginLeft="41dp"
+        android:layout_marginStart="41dp" />
+
+    <TextView
+        android:id="@+id/txtIntervalo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/skIntervalo"
+        android:layout_toRightOf="@+id/skIntervalo"
+        android:textAlignment="center" />
+
+</RelativeLayout>

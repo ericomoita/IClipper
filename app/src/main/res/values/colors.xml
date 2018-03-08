@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#f58634</color>
+    <color name="colorPrimaryDark">#df6e1a</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="transparent">#32000000</color>
+    <color name="Laranja">#f58634</color>
+    <color name="LaranjaEscuro">#df6e1a</color>
+    <color name="Clique">#d4cece</color>
+    <color name="colorBackLight">#f1f1f1</color>
+    <color name="LaranjaClaro">#cef58634</color>
+    <color name="amarelo">#ffff00</color>
+    <color name="vermelho">#ff0032</color>
+    <color name="verde">#00ff00</color>
+    <color name="Transparent100">#00ffffff</color>
+</resources>

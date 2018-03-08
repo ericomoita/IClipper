@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "402947236519",
+    "firebase_url": "https://iclipper-8cbe1.firebaseio.com",
+    "project_id": "iclipper-8cbe1",
+    "storage_bucket": "iclipper-8cbe1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402947236519:android:9afbbb291db01ed3",
+        "android_client_info": {
+          "package_name": "com.iclipper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "402947236519-jt83t75bbkcev8f9odagptac61ohoj4f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.iclipper",
+            "certificate_hash": "ef9837d5980cc330059ab67882c0b422f8c3dd17"
+          }
+        },
+        {
+          "client_id": "402947236519-7cql2sc9brgqqp2vuog26g28pik3ltbb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_cs8LR030FBimnOHXXdcmu8kFpKIQiF8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "402947236519-7cql2sc9brgqqp2vuog26g28pik3ltbb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
