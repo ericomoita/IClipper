@@ -1,0 +1,4 @@
+#Tue Mar 13 20:13:23 BRT 2018
+base.0=C\:\\Users\\ANDROID\\AndroidStudioProjects\\IClipper\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\26
+path.0=classes.dex
+renamed.0=classes.dex

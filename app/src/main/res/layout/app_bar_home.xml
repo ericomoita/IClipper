@@ -17,21 +17,21 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/PopupOverlay">
-            <com.andexert.library.RippleView
+
+            <ImageButton
                 android:id="@+id/ordenar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+
                 android:layout_gravity="right"
-                app:rv_centered="true"
-                >
-            <android.support.v7.widget.AppCompatImageButton
+
+
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_filter_list_white_24dp"
-                android:background="@color/Laranja"
+                android:background="?selectableItemBackgroundBorderless"
 
                 />
-            </com.andexert.library.RippleView>
+
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>

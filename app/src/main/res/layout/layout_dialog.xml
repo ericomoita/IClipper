@@ -82,47 +82,48 @@
                 android:layout_height="wrap_content"
                 android:text="Data"
                 android:textAlignment="center" />
-        <com.andexert.library.RippleView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            >
 
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="14dp"
-                android:layout_marginTop="10dp"
-
-                android:background="@drawable/clock_down"
-                android:textAlignment="center" />
-        </com.andexert.library.RippleView>
-
-            <com.andexert.library.RippleView
+            <com.balysv.materialripple.MaterialRippleLayout
+                android:id="@+id/btDataDown"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                >
+                android:padding="10dp"
+                app:mrl_rippleDuration="1">
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_horizontal"
+
+                    android:background="@drawable/clock_down"
+                    android:textAlignment="center" />
+            </com.balysv.materialripple.MaterialRippleLayout>
+
+            <com.balysv.materialripple.MaterialRippleLayout
+                android:id="@+id/btDataUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:padding="10dp"
+                app:mrl_rippleDuration="1">
+
                 <TextView
                     android:id="@+id/dataDown"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="14dp"
-                    android:layout_marginTop="8dp"
 
                     android:background="@drawable/clock_up"
                     android:textAlignment="center" />
-            </com.andexert.library.RippleView>
+            </com.balysv.materialripple.MaterialRippleLayout>
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="8dp"
+            android:layout_height="0dp"
             android:layout_marginTop="8dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -137,40 +138,46 @@
                 android:text="Nome"
                 android:textAlignment="center" />
 
-            <com.andexert.library.RippleView
+            <com.balysv.materialripple.MaterialRippleLayout
+                android:id="@+id/btNomeDown"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                >
+                android:padding="10dp"
+                app:mrl_rippleDuration="1">
 
                 <TextView
                     android:id="@+id/dataDown"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="14dp"
-                    android:layout_marginTop="10dp"
+
 
                     android:background="@drawable/sortalphabet"
                     android:textAlignment="center" />
-            </com.andexert.library.RippleView>
+            </com.balysv.materialripple.MaterialRippleLayout>
 
-            <com.andexert.library.RippleView
+            <com.balysv.materialripple.MaterialRippleLayout
+                android:id="@+id/btNomeUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                >
+                android:padding="10dp"
+                app:mrl_rippleDimension="5dp"
+                app:mrl_rippleDuration="1"
+                app:mrl_rippleRoundedCorners="5dp">
+
                 <TextView
                     android:id="@+id/dataDown"
+
+
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="14dp"
-                    android:layout_marginTop="8dp"
 
                     android:background="@drawable/sortreversealphabetical"
                     android:textAlignment="center" />
-            </com.andexert.library.RippleView>
+            </com.balysv.materialripple.MaterialRippleLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -191,40 +198,41 @@
                 android:text="Nível"
                 android:textAlignment="center" />
 
-            <com.andexert.library.RippleView
+            <com.balysv.materialripple.MaterialRippleLayout
+                android:id="@+id/btNivelDown"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                >
+                android:padding="10dp"
+                app:mrl_rippleDuration="1">
 
                 <TextView
                     android:id="@+id/dataDown"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="14dp"
-                    android:layout_marginTop="10dp"
 
                     android:background="@drawable/level_down"
                     android:textAlignment="center" />
-            </com.andexert.library.RippleView>
+            </com.balysv.materialripple.MaterialRippleLayout>
 
-            <com.andexert.library.RippleView
+            <com.balysv.materialripple.MaterialRippleLayout
+                android:id="@+id/btNivelUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                >
+                android:padding="10dp"
+                app:mrl_rippleDuration="1">
+
                 <TextView
                     android:id="@+id/dataDown"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="14dp"
-                    android:layout_marginTop="8dp"
 
                     android:background="@drawable/level_up"
                     android:textAlignment="center" />
-            </com.andexert.library.RippleView>
+            </com.balysv.materialripple.MaterialRippleLayout>
         </LinearLayout>
 
     </android.support.constraint.ConstraintLayout>

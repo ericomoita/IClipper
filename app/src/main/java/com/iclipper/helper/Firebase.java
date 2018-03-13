@@ -37,6 +37,7 @@ public class Firebase {
     }
 
     public static FirebaseAuth getFirebaseAuth(){
+
        if(firebaseAuth == null){
             firebaseAuth = FirebaseAuth.getInstance();
        }

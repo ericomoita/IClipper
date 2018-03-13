@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">402947236519-7cql2sc9brgqqp2vuog26g28pik3ltbb.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://iclipper-8cbe1.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">402947236519</string>
+    <string name="google_api_key" translatable="false">AIzaSyB_cs8LR030FBimnOHXXdcmu8kFpKIQiF8</string>
+    <string name="google_app_id" translatable="false">1:402947236519:android:9afbbb291db01ed3</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyB_cs8LR030FBimnOHXXdcmu8kFpKIQiF8</string>
+    <string name="google_storage_bucket" translatable="false">iclipper-8cbe1.appspot.com</string>
+</resources>

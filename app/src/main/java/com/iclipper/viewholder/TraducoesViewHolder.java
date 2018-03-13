@@ -14,7 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import com.andexert.library.RippleView;
+
+import com.balysv.materialripple.MaterialRippleLayout;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -51,8 +52,8 @@ public class TraducoesViewHolder extends RecyclerView.ViewHolder {
     private LinearLayout linearLayout;
     TextView dicionario1;
      ImageButton mTextViewDetails;
-    RippleView deleteButton;
-    RippleView btExibeAlerta;
+    ImageButton deleteButton;
+    ToggleButton btExibeAlerta;
     ToggleButton iconeExibeAlerta;
     boolean exibeAlerta;
     Preferences preferences;
@@ -77,8 +78,8 @@ public class TraducoesViewHolder extends RecyclerView.ViewHolder {
         this.data = (TextView) itemView.findViewById(R.id.data);
         this.linearLayout = (LinearLayout) itemView.findViewById(R.id.layoutDicionario);
         this.dicionario1 = (TextView) itemView.findViewById(R.id.dicionario1);
-        this.deleteButton = (RippleView) itemView.findViewById(R.id.delete);
-        this.btExibeAlerta = (RippleView) itemView.findViewById(R.id.notification);
+        this.deleteButton = (ImageButton) itemView.findViewById(R.id.deleteicon);
+        this.btExibeAlerta = (ToggleButton) itemView.findViewById(R.id.notificationIcon);
         this.iconeExibeAlerta = (ToggleButton) itemView.findViewById(R.id.notificationIcon);
         this.context = itemView.getContext();
         this.preferences = new Preferences(context);

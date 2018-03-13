@@ -32,14 +32,16 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.andexert.library.RippleView;
+
+import com.balysv.materialripple.MaterialRippleLayout;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
-import com.facebook.login.Login;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -84,9 +86,9 @@ public class Home extends AppCompatActivity
     SwipeRefreshLayout mSwipeRefreshLayout;
     FirebaseAuth firebaseAuth;
     Preferences preferences;
-    RippleView delete;
-    RippleView btOrdenar;
-
+    MaterialRippleLayout delete;
+    ImageButton btOrdenar;
+    MaterialRippleLayout btDataDown,btDataUp,btNomeDown,btNomeUp,btNivelDown,btNivelUp;
 
 
 
@@ -103,9 +105,15 @@ public class Home extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         loadingRecyclerView = (ProgressBar)findViewById(R.id.loadingRecyclerView);
-        delete = (RippleView) findViewById(R.id.delete);
-        btOrdenar = (RippleView) findViewById(R.id.ordenar);
+        delete = (MaterialRippleLayout) findViewById(R.id.delete);
+        btOrdenar = (ImageButton) findViewById(R.id.ordenar);
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout);
+        btDataDown = findViewById(R.id.btDataDown);
+        btDataUp = findViewById(R.id.btDataUp);
+        btNomeDown = findViewById(R.id.btNomeDown);
+        btNomeUp = findViewById(R.id.btNomeUp);
+        btNivelDown = findViewById(R.id.btNivelDown);
+        btNivelUp = findViewById(R.id.btNivelUp);
         mSwipeRefreshLayout.setColorSchemeResources(
                 R.color.Laranja);
         bancoDados = openOrCreateDatabase("app", MODE_PRIVATE, null);
@@ -134,7 +142,7 @@ public class Home extends AppCompatActivity
 
             carList = new ArrayList<>();
 
-            preencherLista();
+            preencherLista("data");
         }
 
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -147,7 +155,7 @@ public class Home extends AppCompatActivity
                 }
                 carList.clear();
 
-                preencherLista();
+                preencherLista("data");
             }
         });
 
@@ -212,17 +220,19 @@ public class Home extends AppCompatActivity
             }
         });
 
+
+
     }
 
 
-    public void preencherLista(){
+    public void preencherLista(String ordenacao){
 /*        final Calendar data = Calendar.getInstance();
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         final String date = formatter.format(data.getTimeInMillis());*/
         //Milessegundos
         // data.getTimeInMillis()
         Firebase.getFirebase().child(preferences.getUserId()).keepSynced(true);
-        Firebase.getFirebase().child(preferences.getUserId()).orderByChild("order").addListenerForSingleValueEvent(new ValueEventListener() {
+        Firebase.getFirebase().child(preferences.getUserId()).orderByChild(ordenacao).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 

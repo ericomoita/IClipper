@@ -2,13 +2,14 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.2"
+
     defaultConfig {
         applicationId "com.iclipper"
         minSdkVersion 15
-        targetSdkVersion 27
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -17,48 +18,28 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
-
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-
-    })
-    //compile ('com.balysv:material-ripple:1.0.2');
-
-
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    compile 'com.github.traex.rippleeffect:library:1.3'
-    compile 'com.patrickpissurno:ripple-effect:1.3.1'
-    compile 'com.jaredrummler:material-spinner:1.2.2'
-    compile 'com.daimajia.easing:library:2.0@aar'
-    compile 'com.daimajia.androidanimations:library:2.3@aar'
-    testCompile 'junit:junit:4.12'
-
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support:design:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    implementation 'com.android.support:support-v4:26.1.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    implementation 'com.android.support:support-v4:26.1.0'
+    implementation 'com.daimajia.easing:library:2.0@aar'
+    compile 'com.balysv:material-ripple:1.0.2'
+    //  implementation 'com.patrickpissurno:ripple-effect:1.3.1'
+    implementation 'com.jaredrummler:material-spinner:1.2.2'
+    implementation 'com.android.support:design:26.1.0'
+     implementation 'com.daimajia.androidanimations:library:2.3@aar'
     compile 'com.android.support:cardview-v7:26.1.0'
     compile 'com.android.support:recyclerview-v7:26.1.0'
-    compile 'com.google.firebase:firebase-core:11.8.0'
     compile 'com.google.firebase:firebase-database:11.8.0'
     compile 'com.google.firebase:firebase-auth:11.8.0'
-    compile 'com.android.support:design:26.1.0'
-    compile 'com.google.android.gms:play-services-auth:11.8.0'
-    compile('com.facebook.android:facebook-android-sdk:4.26.0') {
-        exclude group: 'com.android.support', module: 'support-v4'
-        exclude group: 'com.android.support', module: 'appcompat-v7'
-        exclude group: 'com.android.support', module: 'cardview-v7'
-        exclude group: 'com.android.support', module: 'customtabs'
-    }
-}
+    compile 'com.google.firebase:firebase-core:11.8.0'
 
-    apply plugin: 'com.google.gms.google-services'
+}
+apply plugin: 'com.google.gms.google-services'

@@ -9,7 +9,7 @@ import com.iclipper.Janela_Flutuante;
 
 import java.util.Locale;
 
-import static com.facebook.FacebookSdk.getApplicationContext;
+
 
 /**
  * Created by Erico on 27/02/2018.

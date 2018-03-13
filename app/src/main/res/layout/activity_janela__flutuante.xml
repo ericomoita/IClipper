@@ -157,9 +157,9 @@
             android:layout_marginTop="24dp"
             android:background="@drawable/Cor_Branca" />
 
-        <com.andexert.library.RippleView
+        <com.balysv.materialripple.MaterialRippleLayout
             android:id="@+id/btFechar"
-            rv_centered="true"
+
             android:layout_width="54dp"
             android:layout_height="34dp"
             android:layout_alignParentEnd="true"
@@ -169,8 +169,7 @@
             android:layout_marginRight="20dp"
             android:clickable="true"
             android:gravity="center"
-            app:rv_centered="true"
-            app:rv_zoomDuration="500">
+            >
 
             <ImageButton
                 android:layout_width="34dp"
@@ -178,11 +177,11 @@
 
                 android:background="@color/Laranja"
                 android:src="@drawable/ic_cancel" />
-        </com.andexert.library.RippleView>
+        </com.balysv.materialripple.MaterialRippleLayout>
 
-        <com.andexert.library.RippleView
+        <com.balysv.materialripple.MaterialRippleLayout
             android:id="@+id/btFalar"
-            rv_centered="true"
+
             android:layout_width="54dp"
             android:layout_height="34dp"
             android:layout_alignParentEnd="true"
@@ -192,8 +191,7 @@
             android:layout_marginRight="59dp"
             android:clickable="true"
             android:gravity="center"
-            app:rv_centered="true"
-            app:rv_zoomDuration="500">
+            >
 
             <ImageButton
                 android:layout_width="34dp"
@@ -201,12 +199,12 @@
 
                 android:background="@color/Laranja"
                 android:src="@drawable/ic_mic" />
-        </com.andexert.library.RippleView>
+        </com.balysv.materialripple.MaterialRippleLayout>
 
 
-        <com.andexert.library.RippleView
+        <com.balysv.materialripple.MaterialRippleLayout
             android:id="@+id/antigo"
-            rv_centered="true"
+
             android:layout_width="54dp"
             android:layout_height="34dp"
             android:layout_alignParentTop="true"
@@ -216,8 +214,7 @@
             android:layout_toLeftOf="@+id/btFalar"
             android:layout_toStartOf="@+id/btFalar"
             android:clickable="true"
-            app:rv_centered="true"
-            app:rv_zoomDuration="500">
+            >
 
             <ImageButton
 
@@ -228,7 +225,7 @@
                 android:background="@color/Laranja"
 
                 android:src="@drawable/ic_volume_up" />
-        </com.andexert.library.RippleView>
+        </com.balysv.materialripple.MaterialRippleLayout>
 
 
         <android.support.constraint.ConstraintLayout
@@ -325,9 +322,9 @@
                 app:ms_hide_arrow="true" />
 
 
-            <com.andexert.library.RippleView
+            <com.balysv.materialripple.MaterialRippleLayout
                 android:id="@+id/btOuvirTraduzido"
-                rv_centered="true"
+
                 android:layout_width="54dp"
                 android:layout_height="34dp"
                 android:layout_alignParentEnd="true"
@@ -338,8 +335,7 @@
                 android:layout_marginEnd="0dp"
                 android:layout_marginRight="0dp"
                 android:clickable="true"
-                app:rv_centered="true"
-                app:rv_zoomDuration="500">
+               >
 
                 <ImageButton
 
@@ -350,7 +346,7 @@
                     android:background="@color/Laranja"
 
                     android:src="@drawable/ic_volume_up" />
-            </com.andexert.library.RippleView>
+            </com.balysv.materialripple.MaterialRippleLayout>
 
 
         </RelativeLayout>

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="C:\Users\ANDROID\AndroidStudioProjects\IClipper\app\src\main\assets"><file name="animacao.json" path="C:\Users\ANDROID\AndroidStudioProjects\IClipper\app\src\main\assets\animacao.json"/></source><source path="C:\Users\ANDROID\AndroidStudioProjects\IClipper\app\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="C:\Users\ANDROID\AndroidStudioProjects\IClipper\app\src\debug\assets"/></dataSet></merger>

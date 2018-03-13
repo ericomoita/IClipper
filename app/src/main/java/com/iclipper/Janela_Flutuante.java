@@ -35,7 +35,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.andexert.library.RippleView;
+import com.balysv.materialripple.MaterialRippleLayout;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -94,11 +94,11 @@ public class Janela_Flutuante extends Activity {
     MaterialSpinner listaLingOrigem;
     MaterialSpinner listaLingDestino;
     RelativeLayout layoutPrincipal;
-    RippleView microfone;
-    RippleView ouvir;
-    RippleView ouvirTraduzido;
+    MaterialRippleLayout microfone;
+    MaterialRippleLayout ouvir;
+    MaterialRippleLayout ouvirTraduzido;
     EditText textoParaTraduzir;
-    RippleView fechar;
+    MaterialRippleLayout fechar;
     Button traduzir;
     EditText textoTraduzido;
     ProgressBar loading;
@@ -122,11 +122,11 @@ public class Janela_Flutuante extends Activity {
         listaLingOrigem = (MaterialSpinner) findViewById(R.id.spinnerLingOrigem);
         listaLingDestino = (MaterialSpinner) findViewById(R.id.spinnerLingDestino);
         layoutPrincipal = (RelativeLayout) findViewById(R.id.layoutPrincipal);
-        microfone = (RippleView) findViewById(R.id.btFalar);
+        microfone = (MaterialRippleLayout) findViewById(R.id.btFalar);
         textoParaTraduzir = (EditText) findViewById(R.id.textoParaTraduzir);
-        ouvir = (RippleView ) findViewById(R.id.antigo);
-        ouvirTraduzido = (RippleView ) findViewById(R.id.btOuvirTraduzido);
-        fechar = (RippleView) findViewById(R.id.btFechar);
+        ouvir = (MaterialRippleLayout ) findViewById(R.id.antigo);
+        ouvirTraduzido = (MaterialRippleLayout ) findViewById(R.id.btOuvirTraduzido);
+        fechar = (MaterialRippleLayout) findViewById(R.id.btFechar);
         txtParaTraduzir = textoParaTraduzir.getText().toString();
         volume = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         traduzir = (Button) findViewById(R.id.btTraduzir);
