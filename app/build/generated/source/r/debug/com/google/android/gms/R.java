@@ -54,22 +54,22 @@ public final class R {
     public static final class id {
         public static final int adjust_height = 0x7f08001c;
         public static final int adjust_width = 0x7f08001d;
-        public static final int auto = 0x7f080025;
-        public static final int center = 0x7f080037;
-        public static final int dark = 0x7f080047;
-        public static final int email = 0x7f080057;
-        public static final int icon_only = 0x7f08006d;
-        public static final int light = 0x7f080082;
-        public static final int match_parent = 0x7f080091;
-        public static final int none = 0x7f0800a1;
-        public static final int normal = 0x7f0800a2;
-        public static final int radio = 0x7f0800b1;
-        public static final int standard = 0x7f0800e0;
-        public static final int text = 0x7f0800e9;
-        public static final int text2 = 0x7f0800ea;
-        public static final int toolbar = 0x7f08010b;
-        public static final int wide = 0x7f08011d;
-        public static final int wrap_content = 0x7f080120;
+        public static final int auto = 0x7f080026;
+        public static final int center = 0x7f080038;
+        public static final int dark = 0x7f080048;
+        public static final int email = 0x7f080058;
+        public static final int icon_only = 0x7f08006e;
+        public static final int light = 0x7f080083;
+        public static final int match_parent = 0x7f080092;
+        public static final int none = 0x7f0800a2;
+        public static final int normal = 0x7f0800a3;
+        public static final int radio = 0x7f0800b2;
+        public static final int standard = 0x7f0800e1;
+        public static final int text = 0x7f0800ea;
+        public static final int text2 = 0x7f0800eb;
+        public static final int toolbar = 0x7f08010c;
+        public static final int wide = 0x7f08011e;
+        public static final int wrap_content = 0x7f080121;
     }
     public static final class integer {
         public static final int google_play_services_version = 0x7f090007;

@@ -66,6 +66,7 @@
             android:theme="@style/Theme.FloatingWindow.Janela" />
         <activity
             android:name="com.iclipper.Home"
+            android:configChanges="orientation"
             android:label="@string/app_name"
             android:theme="@style/AppTheme" >
             <intent-filter>

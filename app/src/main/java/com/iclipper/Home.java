@@ -29,6 +29,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -60,9 +61,11 @@ import com.iclipper.helper.Preferences;
 import com.iclipper.helper.Speak;
 import com.iclipper.listener.OnListClickInteractionListener;
 
+import java.sql.SQLOutput;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -89,6 +92,9 @@ public class Home extends AppCompatActivity
     MaterialRippleLayout delete;
     ImageButton btOrdenar;
     MaterialRippleLayout btDataDown,btDataUp,btNomeDown,btNomeUp,btNivelDown,btNivelUp;
+    Boolean inverteOrdemArray = false;
+    String ordenacaoRecyclerview = "data";
+    FloatingActionButton fab;
 
 
 
@@ -104,30 +110,31 @@ public class Home extends AppCompatActivity
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        loadingRecyclerView = (ProgressBar)findViewById(R.id.loadingRecyclerView);
+        loadingRecyclerView = (ProgressBar) findViewById(R.id.loadingRecyclerView);
         delete = (MaterialRippleLayout) findViewById(R.id.delete);
         btOrdenar = (ImageButton) findViewById(R.id.ordenar);
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout);
-        btDataDown = findViewById(R.id.btDataDown);
-        btDataUp = findViewById(R.id.btDataUp);
-        btNomeDown = findViewById(R.id.btNomeDown);
-        btNomeUp = findViewById(R.id.btNomeUp);
-        btNivelDown = findViewById(R.id.btNivelDown);
-        btNivelUp = findViewById(R.id.btNivelUp);
+        btDataDown = (MaterialRippleLayout) findViewById(R.id.btDataDown);
+        btDataUp = (MaterialRippleLayout) findViewById(R.id.btDataUp);
+        btNomeDown = (MaterialRippleLayout) findViewById(R.id.btNomeDown);
+        btNomeUp = (MaterialRippleLayout) findViewById(R.id.btNomeUp);
+        btNivelDown = (MaterialRippleLayout) findViewById(R.id.btNivelDown);
+        btNivelUp = (MaterialRippleLayout) findViewById(R.id.btNivelUp);
+        fab = findViewById(R.id.fab);
         mSwipeRefreshLayout.setColorSchemeResources(
                 R.color.Laranja);
         bancoDados = openOrCreateDatabase("app", MODE_PRIVATE, null);
         //final SharedPreferences sharedPreferences = getSharedPreferences("ARQUIVO_PREFERENCIA",0);
-        startService(new Intent(getApplicationContext(),MonitorarClipboard.class));
-         preferences = new Preferences(getApplicationContext());
+        startService(new Intent(getApplicationContext(), MonitorarClipboard.class));
+        preferences = new Preferences(getApplicationContext());
         //preferences.Preferences(getApplicationContext());
-        if( preferences.getUserId() == null){
-            Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+        if (preferences.getUserId() == null) {
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(intent);
             finish();
 
-        }else {
-           // System.out.println(Firebase.getUserId());
+        } else {
+            // System.out.println(Firebase.getUserId());
             try {
                 // mDatabase = FirebaseDatabase.getInstance();
                 database.getInstance().setPersistenceEnabled(true);
@@ -142,25 +149,20 @@ public class Home extends AppCompatActivity
 
             carList = new ArrayList<>();
 
-            preencherLista("data");
+            preencherLista();
         }
 
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                //Limpa Recyler view
-                carListAdapter.notifyItemRangeRemoved(0, carList.size());
-                for(int i = 0; i < carList.size(); i++){
-                    carListAdapter.removerItem(i);
-                }
-                carList.clear();
+                limparRecyclerView();
 
-                preencherLista("data");
+                preencherLista();
             }
         });
 
         //Abre tela para liberar permissão de janela flutuante
-        if(Build.VERSION.SDK_INT >= 23) {
+        if (Build.VERSION.SDK_INT >= 23) {
             if (!Settings.canDrawOverlays(Home.this)) {
                 Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
                         Uri.parse("package:" + getPackageName()));
@@ -169,12 +171,14 @@ public class Home extends AppCompatActivity
         }
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                Intent intent = new Intent(Home.this, Janela_Flutuante.class);
+                startActivity(intent);
             }
         });
 
@@ -186,7 +190,6 @@ public class Home extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
 
 
         // Implementa o evento de click para passar por parâmetro para a ViewHolder
@@ -205,10 +208,10 @@ public class Home extends AppCompatActivity
         btOrdenar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              //  final DialogOrdena dialogOrdena = new DialogOrdena(Home.this);
+                //  final DialogOrdena dialogOrdena = new DialogOrdena(Home.this);
 
-              Dialog dialog = new Dialog(Home.this);
-              dialog.setContentView(R.layout.layout_dialog);
+                final Dialog dialog = new Dialog(Home.this);
+                dialog.setContentView(R.layout.layout_dialog);
 
                 WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
                 lp.copyFrom(dialog.getWindow().getAttributes());
@@ -217,22 +220,99 @@ public class Home extends AppCompatActivity
 
                 dialog.show();
                 dialog.getWindow().setAttributes(lp);
+
+                dialog.findViewById(R.id.btDataDown).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                        limparRecyclerView();
+                        ordenacaoRecyclerview = "data";
+                        inverteOrdemArray = false;
+                        preencherLista();
+                    }
+                });
+                dialog.findViewById(R.id.btDataUp).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                        limparRecyclerView();
+                        ordenacaoRecyclerview = "data";
+                        inverteOrdemArray = true;
+                        preencherLista();
+                    }
+                });
+                dialog.findViewById(R.id.btNomeDown).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                        limparRecyclerView();
+                        ordenacaoRecyclerview = "txtOrigem";
+                        inverteOrdemArray = false;
+                        preencherLista();
+                    }
+                });
+                dialog.findViewById(R.id.btNomeUp).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                        limparRecyclerView();
+                        ordenacaoRecyclerview = "txtOrigem";
+                        inverteOrdemArray = true;
+                        preencherLista();
+                    }
+                });
+                dialog.findViewById(R.id.btNivelDown).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                        limparRecyclerView();
+                        ordenacaoRecyclerview = "nivel";
+                        inverteOrdemArray = false;
+                        preencherLista();
+                    }
+                });
+                dialog.findViewById(R.id.btNivelUp).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                        limparRecyclerView();
+                        ordenacaoRecyclerview = "nivel";
+                        inverteOrdemArray = true;
+                        preencherLista();
+                    }
+                });
             }
         });
 
+        //Oculta FloatButton
+        mViewHolder.mRecyclerCars.addOnScrollListener(new RecyclerView.OnScrollListener(){
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy){
+                if (dy<0 && !fab.isShown())
+                    fab.show();
+                else if(dy>0 && fab.isShown())
+                    fab.hide();
+            }
 
-
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+        });
     }
 
 
-    public void preencherLista(String ordenacao){
+
+
+
+    public void preencherLista(){
 /*        final Calendar data = Calendar.getInstance();
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         final String date = formatter.format(data.getTimeInMillis());*/
         //Milessegundos
         // data.getTimeInMillis()
         Firebase.getFirebase().child(preferences.getUserId()).keepSynced(true);
-        Firebase.getFirebase().child(preferences.getUserId()).orderByChild(ordenacao).addListenerForSingleValueEvent(new ValueEventListener() {
+        Firebase.getFirebase().child(preferences.getUserId()).orderByChild("txtOrigem").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -247,10 +327,12 @@ public class Home extends AppCompatActivity
                     String dicionario = locationSnapshot.child("sinonimo").getValue().toString().toUpperCase();
                     String exibeAlerta = locationSnapshot.child("exibeAlerta").getValue().toString();
 
+
                     /*SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
                     String data = formatter.format(millData);*/
 
                     Traducoes teste = new Traducoes(key,contador, millData, txtOrigem, txtDestino, lgOrigem, lgDestino,dicionario,exibeAlerta);
+
                     carList.add(contador, teste);
 
                     contador++;
@@ -260,8 +342,13 @@ public class Home extends AppCompatActivity
                 //Oculta o loading
                 loadingRecyclerView.setVisibility(View.INVISIBLE);
                 mSwipeRefreshLayout.setRefreshing(false);
-                 Speak speak =  new Speak();
+
+                Speak speak =  new Speak();
                TextToSpeech tts = speak.carregaAudio(getApplicationContext(),"EN");
+               //Interve os a posicao do array
+                if(inverteOrdemArray) {
+                    Collections.reverse(carList);
+                }
                 carListAdapter = new TraducoesListAdapter(carList,listener,tts);
 
                 mViewHolder.mRecyclerCars.setAdapter(carListAdapter);
@@ -277,6 +364,14 @@ public class Home extends AppCompatActivity
 
 
         });
+    }
+    public void limparRecyclerView(){
+        //Limpa Recyler view
+        carListAdapter.notifyItemRangeRemoved(0, carList.size());
+        for(int i = 0; i < carList.size(); i++){
+            carListAdapter.removerItem(i);
+        }
+        carList.clear();
     }
     @Override
     public void onBackPressed() {

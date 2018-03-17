@@ -205,11 +205,11 @@
         <com.balysv.materialripple.MaterialRippleLayout
             android:id="@+id/antigo"
 
-            android:layout_width="54dp"
+            android:layout_width="34dp"
             android:layout_height="34dp"
             android:layout_alignParentTop="true"
-            android:layout_marginEnd="-15dp"
-            android:layout_marginRight="-15dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
             android:layout_marginTop="2dp"
             android:layout_toLeftOf="@+id/btFalar"
             android:layout_toStartOf="@+id/btFalar"
@@ -222,7 +222,7 @@
                 android:layout_height="34dp"
                 android:layout_centerInParent="true"
                 android:layout_gravity="center"
-                android:background="@color/Laranja"
+                android:background="#01a0a0a0"
 
                 android:src="@drawable/ic_volume_up" />
         </com.balysv.materialripple.MaterialRippleLayout>
@@ -325,15 +325,15 @@
             <com.balysv.materialripple.MaterialRippleLayout
                 android:id="@+id/btOuvirTraduzido"
 
-                android:layout_width="54dp"
+                android:layout_width="34dp"
                 android:layout_height="34dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
 
 
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="0dp"
-                android:layout_marginRight="0dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
                 android:clickable="true"
                >
 
@@ -343,7 +343,7 @@
                     android:layout_height="34dp"
                     android:layout_centerInParent="true"
                     android:layout_gravity="center"
-                    android:background="@color/Laranja"
+                    android:background="#00a9a9a9"
 
                     android:src="@drawable/ic_volume_up" />
             </com.balysv.materialripple.MaterialRippleLayout>

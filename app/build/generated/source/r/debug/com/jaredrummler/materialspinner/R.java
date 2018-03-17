@@ -32,10 +32,10 @@ public final class R {
         public static final int ms__shadow_background = 0x7f0700a8;
     }
     public static final class id {
-        public static final int fill_parent = 0x7f080064;
-        public static final int match_parent = 0x7f080091;
-        public static final int tv_tinted_spinner = 0x7f080114;
-        public static final int wrap_content = 0x7f080120;
+        public static final int fill_parent = 0x7f080065;
+        public static final int match_parent = 0x7f080092;
+        public static final int tv_tinted_spinner = 0x7f080115;
+        public static final int wrap_content = 0x7f080121;
     }
     public static final class layout {
         public static final int ms__list_item = 0x7f0a0033;

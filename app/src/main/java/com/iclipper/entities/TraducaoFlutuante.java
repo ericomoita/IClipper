@@ -14,18 +14,20 @@ public class TraducaoFlutuante {
     public String lgDestino;
     public String sinonimo;
     public String exibeAlerta;
+    public long nivel;
 
 
-    public TraducaoFlutuante(String key,long data,long order, String txtOrigem, String txtDestino, String lgOrigem, String lgDestino, String sinonimo, String exibeAlerta) {
+    public TraducaoFlutuante(String key,long data,long order, String txtOrigem, String txtDestino, String lgOrigem, String lgDestino, String sinonimo, String exibeAlerta, long nivel) {
         this.key = key;
         this.data = data;
         this.order = order;
-        this.txtOrigem = txtOrigem;
-        this.txtDestino = txtDestino;
-        this.lgOrigem = lgOrigem;
-        this.lgDestino = lgDestino;
-        this.sinonimo = sinonimo;
+        this.txtOrigem = txtOrigem.toLowerCase();
+        this.txtDestino = txtDestino.toLowerCase();
+        this.lgOrigem = lgOrigem.toLowerCase();
+        this.lgDestino = lgDestino.toLowerCase();
+        this.sinonimo = sinonimo.toLowerCase();
         this.exibeAlerta = exibeAlerta;
+        this.nivel = nivel;
 
     }
 }

@@ -133,7 +133,12 @@ public class Janela_Flutuante extends Activity {
         loading = (ProgressBar) findViewById(R.id.loading);
         imgTrocaLinguagem = (ImageView) findViewById(R.id.imgTrocaLinguagem);
         apagar = (Button) findViewById(R.id.apagar);
-        extra = getIntent().getExtras();
+       try {
+           extra = getIntent().getExtras();
+       }catch (Exception e){
+           e.printStackTrace();
+       }
+
 
         textoTraduzido = (EditText) findViewById(R.id.textoTraduzido);
         sinonimo0 = (TextView)findViewById(R.id.sin1);
@@ -237,17 +242,21 @@ public class Janela_Flutuante extends Activity {
         traduzir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(textoParaTraduzir.getWindowToken(), 0);
-                try {
-                    sinonimo0.setText("");
-                    sinonimo1.setText("");
-                    sinonimo2.setText("");
-                    traduzir(textoParaTraduzir.getText().toString(),converteLinguagemOrigem(), converteLinguagemDestino());
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                if(!textoParaTraduzir.getText().toString().isEmpty()) {
+                    InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(textoParaTraduzir.getWindowToken(), 0);
+                    try {
+                        sinonimo0.setText("");
+                        sinonimo1.setText("");
+                        sinonimo2.setText("");
+                        traduzir(textoParaTraduzir.getText().toString(), converteLinguagemOrigem(), converteLinguagemDestino());
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }else {
+                    Toast.makeText(getApplicationContext(),"Digite algo para traduzir.",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -290,8 +299,11 @@ public class Janela_Flutuante extends Activity {
 
         }
     });
-
-        textoParaTraduzir.setText(extra.getString("texto"));
+        try {
+            textoParaTraduzir.setText(extra.getString("texto"));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         animacaoAbrir();
 
 
@@ -471,7 +483,11 @@ public class Janela_Flutuante extends Activity {
             public void onAnimationEnd(Animator animation) {
 
                 try {
-                    traduzir(textoParaTraduzir.getText().toString(),converteLinguagemOrigem(), converteLinguagemDestino());
+                    if(!textoParaTraduzir.getText().toString().isEmpty()) {
+                        traduzir(textoParaTraduzir.getText().toString(), converteLinguagemOrigem(), converteLinguagemDestino());
+                    }else{
+                        loading.setVisibility(View.INVISIBLE);
+                    }
                 } catch (ExecutionException e) {
                     e.printStackTrace();
                 } catch (InterruptedException e) {
@@ -507,7 +523,7 @@ public class Janela_Flutuante extends Activity {
             @Override
             public void onAnimationEnd(Animator animator) {
                 finish();
-                overridePendingTransition(0, android.R.anim.slide_out_right);
+                overridePendingTransition(0, 0);
             }
 
             @Override
@@ -612,7 +628,7 @@ public class Janela_Flutuante extends Activity {
            long order =  Long.parseLong("999999999999999");
            order = order - data.getTimeInMillis();
             String key = Firebase.getFirebase().child(preferences.getUserId()).push().getKey();
-            TraducaoFlutuante traducaoFlutuante = new TraducaoFlutuante(key,data.getTimeInMillis(),order,textoParaTraduzir.getText().toString(),trad.replace("\\n"," "),lgOrigem,lgDestino,sinonimo,"1");
+            TraducaoFlutuante traducaoFlutuante = new TraducaoFlutuante(key,data.getTimeInMillis(),order,textoParaTraduzir.getText().toString(),trad.replace("\\n"," "),lgOrigem,lgDestino,sinonimo,"1",1);
             Firebase.getFirebase().child(preferences.getUserId()).child(key).setValue(traducaoFlutuante).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
