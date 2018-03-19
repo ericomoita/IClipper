@@ -15,11 +15,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "402947236519-jt83t75bbkcev8f9odagptac61ohoj4f.apps.googleusercontent.com",
+          "client_id": "402947236519-2pep33l0cgmnvjue0vohjueol838b540.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.iclipper",
-            "certificate_hash": "ef9837d5980cc330059ab67882c0b422f8c3dd17"
+            "certificate_hash": "c87f2bf196b22221066835f3807b21951a4b2f2f"
           }
         },
         {
@@ -29,7 +29,7 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB_cs8LR030FBimnOHXXdcmu8kFpKIQiF8"
+          "current_key": "AIzaSyCRNSnAYQzd_t6iHHyLHFnWpm1EDqHVNgs"
         }
       ],
       "services": {

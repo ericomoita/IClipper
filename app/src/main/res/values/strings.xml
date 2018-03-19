@@ -25,11 +25,12 @@
     <string name="action_sign_in">Logar</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="error_invalid_email">Esse E-mail não é valido</string>
-    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_invalid_password">Senha muito curta</string>
     <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required">This field is required</string>
+    <string name="error_field_required">Preenchimento Obrigatorio!</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
     <string name="title_activity_cadastrar">Sign in</string>
+    <string name="title_activity_login_google">LoginGoogle</string>
 </resources>

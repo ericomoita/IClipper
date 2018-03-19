@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Erico\\AndroidStudioProjects\\IClipper\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v20\\values-watch-v20.xml",
+            "outputFile": "C:\\Users\\ANDROID\\AndroidStudioProjects\\IClipper\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v20\\values-watch-v20.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Erico\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-auth-11.8.0.aar\\831dd6779ca06d2c72106cf6e29cd5be\\res\\values-watch-v20\\values.xml",
+                    "source": "C:\\Users\\ANDROID\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-auth-11.8.0.aar\\91350c1a33c33a8cceb2944a1a818794\\res\\values-watch-v20\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11",
                         "startColumns": "0,0,0,0,0,0,0,0",
