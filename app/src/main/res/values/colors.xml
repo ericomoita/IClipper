@@ -13,4 +13,6 @@
     <color name="vermelho">#ff0032</color>
     <color name="verde">#00ff00</color>
     <color name="Transparent100">#00ffffff</color>
+
+    <color name="black_overlay">#66000000</color>
 </resources>

@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\ANDROID\\AndroidStudioProjects\\IClipper\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-port\\values-port.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\ANDROID\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\e9184e32a61de5cf84ab07c260fa1cf0\\res\\values-port\\values-port.xml",
+                    "source": "C:\\Users\\ANDROID\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\12ae3d0725245a22a533c58b004f2cec\\res\\values-port\\values-port.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

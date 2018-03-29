@@ -5,7 +5,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_settings">Settings</string>
+    <string name="logout">Logout</string>
 
 
     <string name="modelo">Modelo</string>
@@ -16,8 +16,8 @@
     <string name="title_activity_login">Entrar</string>
 
     <!-- Facebook application ID and custom URL scheme (app ID prefixed by 'fb'). -->
-    <string name="facebook_application_id" translatable="false">YOUR_APP_ID</string>
-    <string name="facebook_login_protocol_scheme" translatable="false">fbYOUR_APP_ID</string>
+    <string name="facebook_app_id">233278483887324</string>
+    <string name="fb_login_protocol_scheme">fb233278483887324</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email"> Email</string>
@@ -33,4 +33,12 @@
     </string>
     <string name="title_activity_cadastrar">Sign in</string>
     <string name="title_activity_login_google">LoginGoogle</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="title_activity_tela_bloqueio">TelaBLoqueio</string>
+
+
 </resources>

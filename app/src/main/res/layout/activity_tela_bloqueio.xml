@@ -1,0 +1,247 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tela"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scaleType="fitXY"
+    tools:context="com.iclipper.TelaBloqueio">
+
+
+    <ImageButton
+        android:id="@+id/fundo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        />
+    <ImageButton
+        android:id="@+id/pelicula"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#8d000000"
+
+        />
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/relogio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:gravity="center"
+            android:keepScreenOn="true"
+
+            android:text="@string/dummy_content"
+            android:textColor="@drawable/Cor_Branca"
+            android:textSize="60sp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/alarm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/relogio"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:drawableLeft="@drawable/ic_alarm_white_24dp"
+            android:drawablePadding="5dp"
+            android:drawableStart="@drawable/ic_alarm_white_24dp"
+            android:gravity="center_vertical"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:text="TextView"
+            android:textAlignment="textStart"
+            android:textColor="@drawable/Cor_Branca"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/diaMes"
+            app:layout_constraintTop_toBottomOf="@+id/relogio" />
+
+        <TextView
+            android:id="@+id/diaMes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relogio"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@+id/alarm"
+            android:layout_toRightOf="@+id/alarm"
+            android:gravity="center_vertical"
+            android:text="TextView"
+            android:textAlignment="textEnd"
+            android:textColor="@drawable/Cor_Branca"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/alarm"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/relogio" />
+
+        <TextView
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_marginTop="60dp"
+            android:background="@color/cardview_light_background"
+            android:gravity="center_vertical"
+            android:text="CONTENT"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/diaMes" />
+
+
+        <TextView
+            android:id="@+id/alternativa1"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+
+            android:layout_marginEnd="13dp"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/arredondar_tela_bloqueio"
+            android:gravity="center_vertical"
+            android:text="FOGO"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.515"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button3" />
+
+        <TextView
+            android:id="@+id/alternativa2"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+
+            android:layout_marginEnd="13dp"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/arredondar_tela_bloqueio"
+            android:clickable="false"
+            android:editable="true"
+            android:gravity="center_vertical"
+            android:text="CONTEUDO"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.515"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/alternativa1" />
+
+        <TextView
+            android:id="@+id/alternativa3"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+
+            android:layout_marginEnd="13dp"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/arredondar_tela_bloqueio"
+            android:gravity="center_vertical"
+            android:text="MARGEM"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.515"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/alternativa2" />
+
+        <ImageButton
+            android:id="@+id/card_opcoes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/Transparent100"
+            android:paddingBottom="15dp"
+            android:paddingEnd="2dp"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            app:layout_constraintEnd_toEndOf="@+id/button3"
+            app:layout_constraintTop_toTopOf="@+id/button3"
+            app:srcCompat="@drawable/ic_more_vert_black_24dp" />
+
+        <ImageButton
+            android:id="@+id/imageButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="56dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:background="@color/Transparent100"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_lock_open_white_24dp" />
+
+        <ImageButton
+            android:id="@+id/imageButton6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="56dp"
+            android:layout_marginEnd="8dp"
+            android:background="@color/Transparent100"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_camera_alt_white_24dp" />
+
+
+
+
+
+        <ImageButton
+            android:id="@+id/desativar_alerta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="6dp"
+            android:background="@color/Transparent100"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/button3"
+            app:layout_constraintEnd_toStartOf="@+id/card_delete"
+            app:layout_constraintTop_toTopOf="@+id/button3"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/alert_off_tela_bloqueio" />
+
+        <ImageButton
+            android:id="@+id/card_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@color/Transparent100"
+            app:layout_constraintEnd_toStartOf="@+id/card_opcoes"
+            app:layout_constraintTop_toTopOf="@+id/button3"
+            app:srcCompat="@drawable/ic_delete_forever_black_24dp" />
+    </android.support.constraint.ConstraintLayout>
+
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        ads:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="16dp"></com.google.android.gms.ads.AdView>
+
+
+    <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+
+</RelativeLayout>

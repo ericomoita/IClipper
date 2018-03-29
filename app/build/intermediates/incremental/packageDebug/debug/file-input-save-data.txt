@@ -1,6 +1,6 @@
 #Internal package file, do not edit.
-#Sat Mar 17 22:11:02 BRT 2018
-2.base=C\:\\Users\\ANDROID\\AndroidStudioProjects\\IClipper\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\17
+#Tue Mar 20 21:03:58 BRT 2018
+2.base=C\:\\Users\\ANDROID\\AndroidStudioProjects\\IClipper\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\14
 5.set=DEX
 0.path=animacao.json
 2.baseType=DIRECTORY
@@ -26,6 +26,6 @@ count=7
 0.baseType=DIRECTORY
 3.set=DEX
 6.path=classes.dex
-1.base=C\:\\Users\\ANDROID\\AndroidStudioProjects\\IClipper\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\14
+1.base=C\:\\Users\\ANDROID\\AndroidStudioProjects\\IClipper\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\11
 4.baseType=DIRECTORY
 0.set=ASSET

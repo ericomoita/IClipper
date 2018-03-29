@@ -4,8 +4,12 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Build;
@@ -16,10 +20,13 @@ import android.speech.tts.TextToSpeech;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -35,6 +42,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -65,7 +73,12 @@ import com.iclipper.helper.MonitorarClipboard;
 import com.iclipper.helper.Preferences;
 import com.iclipper.helper.Speak;
 import com.iclipper.listener.OnListClickInteractionListener;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.Signature;
 import java.sql.SQLOutput;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -101,6 +114,10 @@ public class Home extends AppCompatActivity
     String ordenacaoRecyclerview = "data";
     FloatingActionButton fab;
     GoogleApiClient mGoogleApiClient;
+    ImageView foto;
+    FirebaseUser user;
+    NavigationView nav_view;
+    View hView;
 
 
 
@@ -113,6 +130,7 @@ public class Home extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         setVolumeControlStream(AudioManager.STREAM_MUSIC);//Habilita botao de diminuir ou aumentar volume
+
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -130,7 +148,15 @@ public class Home extends AppCompatActivity
         fab = findViewById(R.id.fab);
         mSwipeRefreshLayout.setColorSchemeResources(
                 R.color.Laranja);
-        bancoDados = openOrCreateDatabase("app", MODE_PRIVATE, null);
+
+
+        nav_view = (NavigationView) findViewById(R.id.nav_view);
+        hView =  nav_view.getHeaderView(0);
+        foto = hView.findViewById(R.id.fotoPerfil);
+
+
+
+       // bancoDados = openOrCreateDatabase("app", MODE_PRIVATE, null);
         //final SharedPreferences sharedPreferences = getSharedPreferences("ARQUIVO_PREFERENCIA",0);
         startService(new Intent(getApplicationContext(), MonitorarClipboard.class));
         preferences = new Preferences(getApplicationContext());
@@ -141,21 +167,43 @@ public class Home extends AppCompatActivity
             finish();
 
         } else {
-            // System.out.println(Firebase.getUserId());
-            try {
-                // mDatabase = FirebaseDatabase.getInstance();
-                database.getInstance().setPersistenceEnabled(true);
+            //Seta a foto de perfil
+            user = FirebaseAuth.getInstance().getCurrentUser();
+            Uri photoUrl = user.getPhotoUrl();
+            String url = photoUrl.toString();
+           Picasso.with(this).load(url).resize(190, 190).into(foto, new Callback() {
+               @Override
+               public void onSuccess() {
+                   Bitmap imageBitmap = ((BitmapDrawable) foto.getDrawable()).getBitmap();
+                   RoundedBitmapDrawable imageDrawable = RoundedBitmapDrawableFactory.create(getResources(), imageBitmap);
+                   imageDrawable.setCircular(true);
+                   imageDrawable.setCornerRadius(Math.max(imageBitmap.getWidth(), imageBitmap.getHeight()) / 2.0f);
+                   foto.setImageDrawable(imageDrawable);
+               }
+               @Override
+               public void onError() {
+                   foto.setImageResource(R.drawable.bt_facebook);
+               }
+           });
 
+           //Seta nome do perfil
+           TextView nomePerfil = hView.findViewById(R.id.nomePerfil);
+           nomePerfil.setText(user.getDisplayName());
+
+           //Seta email
+            TextView emailPerfil = hView.findViewById(R.id.emailPerfil);
+            emailPerfil.setText(user.getEmail());
+
+
+
+            try {
+                database.getInstance().setPersistenceEnabled(true);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            //myRef = database.getInstance().getReference("traducoes").child("Usuario").child("Erico Moita");
-
             // Instancia variáveis
             this.mContext = this;
-
             carList = new ArrayList<>();
-
             preencherLista();
         }
 
@@ -406,7 +454,7 @@ public class Home extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.logout) {
             FirebaseAuth.getInstance().signOut();
             preferences.setUserId(null);
             finish();
